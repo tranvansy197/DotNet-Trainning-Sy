@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "u4G6e+hKUfM=",
+  "success": true,
+  "projectFilePath": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/ToDoList/ToDoList/ToDoList.csproj",
+  "expectedPackageFiles": [
+    "/Users/sytran/.nuget/packages/microsoft.aspnetcore.openapi/9.0.6/microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
+    "/Users/sytran/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
