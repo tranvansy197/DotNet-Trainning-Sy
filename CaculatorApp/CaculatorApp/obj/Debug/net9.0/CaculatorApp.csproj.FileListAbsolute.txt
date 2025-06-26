@@ -1,0 +1,30 @@
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp.deps.json
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp.runtimeconfig.json
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp.dll
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp.pdb
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.AssemblyInfoInputs.cache
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.AssemblyInfo.cs
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.csproj.CoreCompileInputs.cache
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.sourcelink.json
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.dll
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/refint/CaculatorApp.dll
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.pdb
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.genruntimeconfig.cache
+/Users/sytran/Documents/smartdev/Dotnet tranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/ref/CaculatorApp.dll
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp.deps.json
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp.runtimeconfig.json
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp.dll
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/bin/Debug/net9.0/CaculatorApp.pdb
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.AssemblyInfoInputs.cache
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.AssemblyInfo.cs
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.csproj.CoreCompileInputs.cache
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.sourcelink.json
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.dll
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/refint/CaculatorApp.dll
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.pdb
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/CaculatorApp.genruntimeconfig.cache
+/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/CaculatorApp/CaculatorApp/obj/Debug/net9.0/ref/CaculatorApp.dll
