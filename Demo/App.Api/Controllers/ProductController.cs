@@ -2,6 +2,7 @@
 using App.Api.common;
 using App.Api.Models;
 using App.Api.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Api.Controller;
@@ -17,6 +18,7 @@ public class ProductController : ControllerBase
         _service = service;
     }
     
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(long id)
     {
@@ -25,6 +27,7 @@ public class ProductController : ControllerBase
     }
     
     [HttpGet]
+    [Authorize(Roles = "Admin,User")]
     public async Task<IActionResult> GetAllProducts([FromQuery] PageRequest request)
     {
         var products = await _service.GetAllProducts(request);

@@ -2,7 +2,6 @@ using System.Text;
 using App.Api.common;
 using App.Api.exception;
 using App.Api.Job;
-using App.Api.Mapper;
 using App.Api.repository;
 using App.Api.repository.impl;
 using App.Api.Service;
@@ -11,12 +10,28 @@ using App.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using NSwag; // Add this
+using NSwag.Generation.Processors.Security; // Add this
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApiDocument();
+
+// Add OpenApiDocument with JWT Bearer config
+builder.Services.AddOpenApiDocument(config =>
+{
+    config.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
+    {
+        Type = OpenApiSecuritySchemeType.ApiKey,
+        Name = "Authorization",
+        In = OpenApiSecurityApiKeyLocation.Header,
+        Description = "Type into the textbox: Bearer {your JWT token}."
+    });
+
+    config.OperationProcessors.Add(
+        new AspNetCoreOperationSecurityScopeProcessor("JWT"));
+});
 
 // Configure the HTTP request pipeline.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -24,7 +39,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+// Add JwtSettings to DI container
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+builder.Services.AddSingleton(resolver =>
+    resolver.GetRequiredService<Microsoft.Extensions.Options.IOptions<JwtSettings>>().Value);
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var key = Encoding.ASCII.GetBytes(jwtSettings["SecretKey"]);
@@ -48,11 +66,18 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+
 builder.Services.AddControllers();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddAutoMapper(typeof(ProductProfile).Assembly);
-// Add Swagger services
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Register AuthService
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+// Add Swagger services with JWT support
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddHostedService<ProductCleanupBackgroundService>();
@@ -65,5 +90,7 @@ app.MapControllers();
 app.MapOpenApi();
 app.UseOpenApi();
 app.UseSwaggerUi();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
