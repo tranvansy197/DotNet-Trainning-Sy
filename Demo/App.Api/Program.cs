@@ -39,13 +39,15 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-// Add JwtSettings to DI container
-builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
-builder.Services.AddSingleton(resolver =>
-    resolver.GetRequiredService<Microsoft.Extensions.Options.IOptions<JwtSettings>>().Value);
+// Bind JwtSettings from configuration
+var jwtSettingsSection = builder.Configuration.GetSection("JwtSettings");
+var jwtSettings = jwtSettingsSection.Get<JwtSettings>();
 
-var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-var key = Encoding.ASCII.GetBytes(jwtSettings["SecretKey"]);
+// Add JwtSettings to DI container
+builder.Services.Configure<JwtSettings>(jwtSettingsSection);
+builder.Services.AddSingleton(jwtSettings);
+
+var key = Encoding.UTF8.GetBytes(jwtSettings.SecretKey);
 
 builder.Services.AddAuthentication(options =>
     {
@@ -60,8 +62,8 @@ builder.Services.AddAuthentication(options =>
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = jwtSettings["Issuer"],
-            ValidAudience = jwtSettings["Audience"],
+            ValidIssuer = jwtSettings.Issuer,
+            ValidAudience = jwtSettings.Audience,
             IssuerSigningKey = new SymmetricSecurityKey(key)
         };
     });
