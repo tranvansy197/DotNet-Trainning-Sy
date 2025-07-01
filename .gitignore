@@ -1,1 +1,4 @@
-/Demo/
+bin/
+obj/
+.idea/
+appsettings.Development.json
