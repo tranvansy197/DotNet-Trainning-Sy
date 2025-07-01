@@ -2782,19 +2782,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/sytran/.nuget/packages/": {}
+    "C:\\Users\\tranv\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/App.Data.csproj",
+      "projectUniqueName": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\App.Data.csproj",
       "projectName": "App.Data",
-      "projectPath": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/App.Data.csproj",
-      "packagesPath": "/Users/sytran/.nuget/packages/",
-      "outputPath": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/obj/",
+      "projectPath": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\App.Data.csproj",
+      "packagesPath": "C:\\Users\\tranv\\.nuget\\packages\\",
+      "outputPath": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/sytran/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\tranv\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -2851,7 +2851,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\tranv\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

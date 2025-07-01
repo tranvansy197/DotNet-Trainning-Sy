@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace App.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250627105240_InitialCreate")]
+    [Migration("20250630111916_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -97,6 +97,49 @@ namespace App.Data.Migrations
                     b.ToTable("products", (string)null);
                 });
 
+            modelBuilder.Entity("App.Api.Domains.Role", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("App.Api.Domains.User", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<long>("RoleId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("App.Api.Domains.Product", b =>
                 {
                     b.HasOne("App.Api.Domains.Category", "Category")
@@ -108,9 +151,25 @@ namespace App.Data.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("App.Api.Domains.User", b =>
+                {
+                    b.HasOne("App.Api.Domains.Role", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("App.Api.Domains.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("App.Api.Domains.Role", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,8 +7,9 @@ public class AppDbContext : DbContext
 {
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<Category> Categories { get; set; } = null!;
-
-    // Constructor không tham số cho EF Core CLI
+    public DbSet<User> Users { get; set; } = null!;
+    public DbSet<Role> Roles { get; set; } = null!;
+    
     public AppDbContext() { }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

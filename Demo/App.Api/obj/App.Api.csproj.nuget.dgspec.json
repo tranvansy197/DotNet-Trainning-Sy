@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Api/App.Api.csproj": {}
+    "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Api\\App.Api.csproj": {}
   },
   "projects": {
-    "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Api/App.Api.csproj": {
+    "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Api\\App.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Api/App.Api.csproj",
+        "projectUniqueName": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Api\\App.Api.csproj",
         "projectName": "App.Api",
-        "projectPath": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Api/App.Api.csproj",
-        "packagesPath": "/Users/sytran/.nuget/packages/",
-        "outputPath": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Api/obj/",
+        "projectPath": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Api\\App.Api.csproj",
+        "packagesPath": "C:\\Users\\tranv\\.nuget\\packages\\",
+        "outputPath": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/sytran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tranv\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/App.Data.csproj": {
-                "projectPath": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/App.Data.csproj"
+              "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\App.Data.csproj": {
+                "projectPath": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\App.Data.csproj"
               }
             }
           }
@@ -51,6 +51,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[14.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.6, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -94,21 +98,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\tranv\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/App.Data.csproj": {
+    "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\App.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/App.Data.csproj",
+        "projectUniqueName": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\App.Data.csproj",
         "projectName": "App.Data",
-        "projectPath": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/App.Data.csproj",
-        "packagesPath": "/Users/sytran/.nuget/packages/",
-        "outputPath": "/Users/sytran/Documents/smartdev/DotnetTranning/DotNet-Trainning-Sy/Demo/App.Data/obj/",
+        "projectPath": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\App.Data.csproj",
+        "packagesPath": "C:\\Users\\tranv\\.nuget\\packages\\",
+        "outputPath": "D:\\code\\dotnet\\DotNet-Trainning-Sy\\Demo\\App.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/sytran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tranv\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -165,7 +169,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\tranv\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
