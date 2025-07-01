@@ -11,12 +11,14 @@ namespace App.Api.Service.impl;
 public class ProductService : IProductService
 {
     private readonly IProductRepository _productRepository;
+    private readonly ICategoryRepository _categoryRepository;
     private readonly IMapper _mapper;
 
-    public ProductService(IProductRepository productRepository, IMapper mapper)
+    public ProductService(IProductRepository productRepository, IMapper mapper, ICategoryRepository categoryRepository)
     {
         _productRepository = productRepository;
         _mapper = mapper;
+        _categoryRepository = categoryRepository;
     }
 
     public async Task<ProductDTO> GetById(long id)
@@ -46,6 +48,18 @@ public class ProductService : IProductService
     
     public async Task<ProductDTO> CreateProduct(ProductCreatedDTO productCreatedDto)
     {
+        var categoryExists = await _categoryRepository.CheckIfCategoryExists(productCreatedDto.CategoryId);
+        if (!categoryExists)
+        {
+            throw new BusinessException("Category not found", HttpStatusCode.NotFound);
+        }
+        
+        var exists = await _productRepository.CheckIfExists(productCreatedDto.Name, productCreatedDto.CategoryId);
+        if (exists)
+        {
+            throw new BusinessException("Product with the same name already exists in this category", HttpStatusCode.Conflict);
+        }
+        
         var product = _mapper.Map<Product>(productCreatedDto);
         var createdProduct = await _productRepository.CreateProduct(product);
         return _mapper.Map<ProductDTO>(createdProduct);
@@ -58,7 +72,7 @@ public class ProductService : IProductService
         {
             throw new BusinessException("Product not found", HttpStatusCode.NotFound);
         }
-        product.IsDeleted = true; // Soft delete
+        product.IsDeleted = true;
         product.DeletedAt = DateTime.UtcNow;
         await _productRepository.DeleteProduct(product);
     }

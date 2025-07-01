@@ -16,14 +16,21 @@ namespace App.Api.Service.impl;
 public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;
-    private readonly PasswordHasher<string> _passwordHasher = new PasswordHasher<string>();
+    private readonly PasswordHasher<string> _passwordHasher;
     private readonly JwtSettings _jwtSettings;
     private readonly IMapper _mapper;
-    public AuthService(IUserRepository userRepository, JwtSettings jwtSettings, IMapper mapper)
+    private readonly IRedisService _redisService;
+    public AuthService(PasswordHasher<string> passwordHasher,
+        IUserRepository userRepository,
+        JwtSettings jwtSettings,
+        IMapper mapper,
+        IRedisService redisService)
     {
+        _passwordHasher = passwordHasher;
         _userRepository = userRepository;
         _jwtSettings = jwtSettings;
         _mapper = mapper;
+        _redisService = redisService;
     }
     
     public async Task<string> Login(LoginRequestDTO request)
@@ -33,7 +40,6 @@ public class AuthService : IAuthService
             throw new BusinessException("Invalid username or password", HttpStatusCode.Unauthorized);
 
         var tokenHandler = new JwtSecurityTokenHandler();
-        // Ensure the secret key is at least 16 bytes for HmacSha256 and use UTF8 encoding
         var key = Encoding.UTF8.GetBytes(_jwtSettings.SecretKey);
 
         var tokenDescriptor = new SecurityTokenDescriptor

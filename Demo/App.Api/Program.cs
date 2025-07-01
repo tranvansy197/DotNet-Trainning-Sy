@@ -8,10 +8,13 @@ using App.Api.Service;
 using App.Api.Service.impl;
 using App.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 using NSwag; // Add this
 using NSwag.Generation.Processors.Security; // Add this
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,16 +76,33 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 // Register AuthService
 builder.Services.AddScoped<IAuthService, AuthService>();
-
+builder.Services.AddScoped<PasswordHasher<string>>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 // Add Swagger services with JWT support
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddHostedService<ProductCleanupBackgroundService>();
+
+// Redis configuration
+var redisConnectionString = builder.Configuration.GetValue<string>("Redis:ConnectionString") 
+    ?? "localhost:6379,password=my_redis_password";
+builder.Services.AddSingleton<IConnectionMultiplexer>(
+    ConnectionMultiplexer.Connect(redisConnectionString));
+builder.Services.AddScoped<IRedisService, RedisService>();
+
+builder.Services.Configure<MongoDbSettings>(
+    builder.Configuration.GetSection("MongoDB"));
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var settings = builder.Configuration.GetSection("MongoDB").Get<MongoDbSettings>();
+    return new MongoClient(settings.ConnectionString);
+});
+builder.Services.AddScoped<IBrandService, BrandService>();
 
 var app = builder.Build();
 

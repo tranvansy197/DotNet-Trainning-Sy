@@ -4,9 +4,9 @@ using AutoMapper;
 
 namespace App.Api.Mapper;
 
-public class ProductProfile : Profile
+public class MappingProfile : Profile
 {
-    public ProductProfile()
+    public MappingProfile()
     {
         CreateMap<Product, ProductDTO>()
             .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));

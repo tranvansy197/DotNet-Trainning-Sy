@@ -13,7 +13,12 @@ public class ProductRepository : IProductRepository
     {
         _context = context;
     }
-    
+
+    public async Task<bool> CheckIfExists(string name, long categoryId)
+    {
+        return await _context.Products.AnyAsync(p => p.Name == name && p.CategoryId == categoryId && !p.IsDeleted);
+    }
+
     public async Task<Product> GetById(long id)
     {
         Product? product = await _context.Products
