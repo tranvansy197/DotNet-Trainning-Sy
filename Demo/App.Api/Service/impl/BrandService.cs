@@ -18,4 +18,10 @@ public class BrandService : IBrandService
     {
         return await _brandCollection.Find(_ => true).ToListAsync();
     }
+    
+    public async Task AddBrand(Brand brand)
+    {
+        await _brandCollection.InsertOneAsync(brand);
+    }
+
 }

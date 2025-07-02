@@ -31,7 +31,7 @@ public class ProductService : IProductService
         return _mapper.Map<ProductDTO>(product);
     }
 
-    public async Task<PageResponse<ProductDTO>> GetAllProducts(PageRequest request)
+    public async Task<PageResponse<ProductDTO>> GetAllProducts(ProductFilter request)
     {
         var productsPage = await _productRepository.GetAllProducts(request);
 

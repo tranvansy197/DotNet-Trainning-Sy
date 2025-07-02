@@ -89,8 +89,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHostedService<ProductCleanupBackgroundService>();
 
 // Redis configuration
-var redisConnectionString = builder.Configuration.GetValue<string>("Redis:ConnectionString") 
-    ?? "localhost:6379,password=my_redis_password";
+var redisConnectionString = builder.Configuration["RedisSettings:ConnectionString"];
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect(redisConnectionString));
 builder.Services.AddScoped<IRedisService, RedisService>();

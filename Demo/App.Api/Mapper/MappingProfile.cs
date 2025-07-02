@@ -12,6 +12,6 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
         CreateMap<ProductCreatedDTO, Product>()
             .ForMember(dest => dest.Category, opt => opt.Ignore());
-        CreateMap<RegisterRequestDTO, User>();
+        CreateMap<RegisterRequestDTO, User>().ReverseMap();
     }
 }

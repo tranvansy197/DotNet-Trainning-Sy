@@ -27,8 +27,8 @@ public class ProductController : ControllerBase
     }
     
     [HttpGet]
-    [Authorize(Roles = "Admin,User")]
-    public async Task<IActionResult> GetAllProducts([FromQuery] PageRequest request)
+    // [Authorize(Roles = "Admin,User")]
+    public async Task<IActionResult> GetAllProducts([FromQuery] ProductFilter request)
     {
         var products = await _service.GetAllProducts(request);
         return Ok(products);

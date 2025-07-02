@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using App.Api.common;
 using App.Api.Domains;
 using App.Api.Models;
@@ -27,14 +28,14 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task<PageResponse<Product>> GetAllProducts(PageRequest request)
+    public async Task<PageResponse<Product>> GetAllProducts(ProductFilter request)
     {
         var query = _context.Products.AsQueryable();
         query = query.OrderByDescending(p => p.CreatedAt)
-            .Where(delete => !delete.IsDeleted);
-        
+            .Where(p => !p.IsDeleted && (string.IsNullOrEmpty(request.Name) ||
+                                            p.Name.Contains(request.Name)));
         var totalItems = await query.CountAsync();
-        
+
         var products = await query.Include(p => p.Category)
             .Skip((request.PageNumber - 1) * request.PageSize)
             .Take(request.PageSize)
